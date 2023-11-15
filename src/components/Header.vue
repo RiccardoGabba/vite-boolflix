@@ -1,10 +1,11 @@
 <template>
-  <div class="d-flex">
+  <div class="d-flex justify-content-between bg-black">
     <div>
-        <h1>maremma</h1>
+        <h1 class="text-white">BoolFlix</h1>
     </div>
-    <div>
-        <h2>vacca</h2>
+    <div class="d-flex ">
+        <input type="text">
+        <input type="button" value="Search">
     </div>
   </div>
 </template>
