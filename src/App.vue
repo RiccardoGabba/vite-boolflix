@@ -14,7 +14,7 @@
             </div>
 
             <div v-for="el in store.movieList">
-              {{ el.title }}
+              <card/>
             </div>
           </div>
         </div>
@@ -41,8 +41,10 @@
 import Header from "./components/Header.vue";
 import { store } from "./data/store";
 import axios from "axios";
+import card from "./components/Card.vue";
 export default {
   name: "App",
+
   data() {
     return {
       store,
@@ -69,6 +71,7 @@ export default {
 
   components: {
     Header,
+    card,
   },
 };
 </script>
