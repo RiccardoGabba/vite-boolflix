@@ -4,7 +4,7 @@
         <h1>maremma</h1>
     </div>
     <div>
-        <h2></h2>
+        <h2>vacca</h2>
     </div>
   </div>
 </template>
