@@ -1,14 +1,14 @@
 <template>
-<header/>
+<Header/>
 </template>
 
 <script>
-import header from './components/Header.vue'
+import Header from './components/Header.vue'
   export default {
     name: 'App',
     components: {
-      header, 
-      
+      Header, 
+
     }
   }
 </script>
