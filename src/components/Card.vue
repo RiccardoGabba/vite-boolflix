@@ -10,7 +10,7 @@
 
 <script>
     export default {
-        name:'card',
+        name:'Card',
         props: {
             image: String,
             data: String,
@@ -31,9 +31,4 @@
 </style>
 
 
-<!-- 
-Titolo
-Titolo Originale
-Lingua
-Voto 
--->
+

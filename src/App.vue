@@ -13,9 +13,16 @@
               <h2>Film</h2>
             </div>
 
-            <div v-for="el in store.movieList">
-              <card/>
-            </div>
+            
+              <Card  v-for="el in store.movieList"
+              :title="el.title"
+              :data="el.data"
+              :original_title="el.original_title"
+              :vote="el.vote"
+              :image="el.image"
+              
+              />
+            
           </div>
         </div>
       </section>
@@ -41,7 +48,7 @@
 import Header from "./components/Header.vue";
 import { store } from "./data/store";
 import axios from "axios";
-import card from "./components/Card.vue";
+import Card from "./components/Card.vue";
 export default {
   name: "App",
 
@@ -71,7 +78,7 @@ export default {
 
   components: {
     Header,
-    card,
+    Card,
   },
 };
 </script>
