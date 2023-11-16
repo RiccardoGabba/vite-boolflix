@@ -6,34 +6,38 @@
 
     <div class="container">
       <section id="movie">
-        <h2>Film</h2>
+        <h2 class="display-2">Film</h2>
         <div class="row flex-wrap">
-            <Card 
-              v-for="el in store.movieList"
-              :original_title="el.original_title"
-              :title="el.title"
-              :data="el.release_data"
-              :vote="el.vote_average"
-              :image="store.imgUrl + el.poster_path"
-            />
-          
+          <Card
+            v-for="el in store.movieList"
+            :original_title="el.original_title"
+            :title="el.title"
+            :vote="el.vote_average"
+            :language="
+              'https://flagsapi.com/' +
+              langUp(el.original_language) +
+              '/flat/32.png'
+            "
+            :image="store.imgUrl + el.poster_path"
+          />
         </div>
       </section>
 
       <section id="tv">
-        <div class="row">
-          <div class="col-12">
-            <h2>Serie</h2>
-            <div>
-              <card
-                v-for="el in store.seriesList"
-                :name="el.name"
-                :original_name="el.original_name"
-                :vote="el.vote"
-                :image="store.imgUrl + el.poster_path"
-              />
-            </div>
-          </div>
+        <h2 class="display-2">Serie</h2>
+        <div class="row flex-wrap">
+          <card
+            v-for="el in store.seriesList"
+            :name="el.name"
+            :original_name="el.original_name"
+            :vote="el.vote_average"
+            :image="store.imgUrl + el.poster_path"
+            :language="
+              'https://flagsapi.com/' +
+              langUp(el.original_language) +
+              '/flat/32.png'
+            "
+          />
         </div>
       </section>
     </div>
@@ -58,8 +62,23 @@ export default {
     };
   },
   methods: {
-    
+    langUp(val) {
+      let langUpCase = val.toUpperCase();
+      if (val === "en" || val === "uk") {
+        return "GB";
+      } else if (val === "ja") {
+        return "JP";
+      } else if (val === "ko") {
+        return "KP";
+      } else if (val === "hi") {
+        return "IN";
+      } else if (val === "zh") {
+        return "CN";
+      } else {
+        return langUpCase;
+      }
     },
+  },
 };
 </script>
 
