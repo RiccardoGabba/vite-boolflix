@@ -1,5 +1,5 @@
 <template>
-   <div class="col-2 text-center ">
+   <div class="col-4 text-center">
     <img :src="image" alt=""> 
         <h5>{{ title }}</h5>
         <h5>{{ original_title }}</h5>
@@ -35,7 +35,10 @@
 </script>
 
 <style lang="scss" scoped>
-
+img{
+    width: 100%;
+    
+    }
 </style>
 
 

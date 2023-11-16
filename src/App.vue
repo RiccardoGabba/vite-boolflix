@@ -6,10 +6,9 @@
 
     <div class="container">
       <section id="movie">
-        <div class="row">
-          <div class="col-12">
-            <h2>Film</h2>
-            <Card
+        <h2>Film</h2>
+        <div class="row flex-wrap">
+            <Card 
               v-for="el in store.movieList"
               :original_title="el.original_title"
               :title="el.title"
@@ -17,7 +16,7 @@
               :vote="el.vote_average"
               :image="store.imgUrl + el.poster_path"
             />
-          </div>
+          
         </div>
       </section>
 
@@ -25,7 +24,6 @@
         <div class="row">
           <div class="col-12">
             <h2>Serie</h2>
-
             <div>
               <card
                 v-for="el in store.seriesList"
@@ -60,23 +58,8 @@ export default {
     };
   },
   methods: {
-    getMoviesAndSeries() {
-      const movieurl = this.store.apiUrl + this.store.endPoint.movie;
-      axios.get(movieurl, { params: this.store.params }).then((res) => {
-        console.log(res.data.results);
-        this.store.movieList = res.data.results;
-      });
-      const tvurl = this.store.apiUrl + this.store.endPoint.series;
-      axios.get(tvurl, { params: this.store.params }).then((res) => {
-        console.log(res.data.results);
-        this.store.seriesList = res.data.results;
-      });
+    
     },
-  },
-
-  created() {
-    this.getMoviesAndSeries();
-  },
 };
 </script>
 

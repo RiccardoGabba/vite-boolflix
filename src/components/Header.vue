@@ -1,31 +1,52 @@
 <template>
-  <div class="d-flex justify-content-between bg-black">
+  <div class="d-flex justify-content-between bg-black p-3">
     <div>
-      <h1 class="text-white">BoolFlix</h1>
+      <h1 class="text-danger display-2">Netflix</h1>
     </div>
-    <div class="">
-      <nav class="navbar navbar-light">
-        <form class="form-inline">
-          <input
+
+    <nav class="navbar navbar-light">
+      
+        <div>
+          <input v-model=" store.params.query"
             class="form-control mr-sm-2"
             type="search"
             placeholder="Search"
             aria-label="Search"
           />
-          <button class="btn btn-outline-success my-2 my-sm-0" type="submit">
+        </div>
+        <div>
+          <button class="btn btn-outline-success my-2 my-sm-0" type="submit" @click="getMoviesAndSeries()">
             Search
           </button>
-        </form>
-      </nav>
-    </div>
+        </div>
+      
+    </nav>
   </div>
 </template>
 
 <script>
+import {store} from '../data/store'
+import axios from 'axios'
 export default {
   name: "Header",
+  methods: {
+    getMoviesAndSeries() {
+      const movieurl = this.store.apiUrl + this.store.endPoint.movie;
+      axios.get(movieurl, { params: this.store.params }).then((res) => {
+        console.log(res.data.results);
+        this.store.movieList = res.data.results;
+      });
+      const tvurl = this.store.apiUrl + this.store.endPoint.series;
+      axios.get(tvurl, { params: this.store.params }).then((res) => {
+        console.log(res.data.results);
+        this.store.seriesList = res.data.results;
+      });
+    },
+  },
   data() {
-    return {};
+    return {
+      store,
+    };
   },
 };
 </script>
