@@ -20,9 +20,11 @@
           <h5>Lingua</h5>
           <img :src="language" />
           
-          <h5>Voto: {{ vote }}</h5>
+          <p >Voto: <span v-for="i in 5">
+            <i v-if="i <= vote" class="fa-solid fa-star"></i>
+            <i v-else class="fa-regular fa-star"></i>
+        </span></p>
           <p><strong>Overview:</strong> {{ overview }}</p>
-          
         </div>
       </div>
     </div>
@@ -36,7 +38,7 @@ export default {
   props: {
     image: String,
     overview: String,
-    vote: String,
+    vote: Number,
     language: String,
     title: String,
     original_title: String,
@@ -89,5 +91,10 @@ container-immagine {
   background-color: #111111;
   color: #eeeeee;
   transform: rotateY(180deg);
+}
+
+
+i{
+    color:yellow;
 }
 </style>

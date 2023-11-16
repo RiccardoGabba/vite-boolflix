@@ -81,13 +81,12 @@ export default {
         return langUpCase;
       }
     },
+    voteStar(val) {
+      if (i < vote_averahe) {
+        
+      }
+    }
 
-
-  
-     
-       
-    
-    
   },
 };
 </script>
