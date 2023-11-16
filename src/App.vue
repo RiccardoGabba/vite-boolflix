@@ -8,18 +8,23 @@
       <section id="movie">
         <h2 class="display-2">Film</h2>
         <div class="row flex-wrap">
-          <Card
-            v-for="el in store.movieList"
-            :original_title="el.original_title"
-            :title="el.title"
-            :vote="el.vote_average"
-            :language="
-              'https://flagsapi.com/' +
-              langUp(el.original_language) +
-              '/flat/32.png'
-            "
-            :image="store.imgUrl + el.poster_path"
-          />
+          
+                <Card
+                  v-for="el in store.movieList"  
+                  :original_title="el.original_title"
+                  :title="el.title"
+                  :vote="el.vote_average"
+                  :language="
+                    'https://flagsapi.com/' +
+                    langUp(el.original_language) +
+                    '/flat/32.png'"
+                  :image="store.imgUrl + el.poster_path"
+                />
+              </div>
+              <div class="box-back">
+                
+      
+           
         </div>
       </section>
 
@@ -82,4 +87,6 @@ export default {
 };
 </script>
 
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+
+</style>
