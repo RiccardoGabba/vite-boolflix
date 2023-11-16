@@ -45,10 +45,16 @@ export default {
     overview: String,
   },
   data() {
-    return {};
+    
+
+    return {
+        
+    };
   },
 };
 </script>
+
+
 
 <style lang="scss" scoped>
 container-immagine {

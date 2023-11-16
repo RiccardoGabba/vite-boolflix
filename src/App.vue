@@ -12,7 +12,7 @@
                   v-for="el in store.movieList"  
                   :original_title="el.original_title"
                   :title="el.title"
-                  :vote="el.vote_average"
+                  :vote="Math.round(el.vote_average / 2)"
                   :language="
                     'https://flagsapi.com/' +
                     langUp(el.original_language) +
@@ -33,7 +33,7 @@
             :overview="el.overview"
             :name="el.name"
             :original_name="el.original_name"
-            :vote="el.vote_average"
+            :vote="Math.round(el.vote_average /  2)"
             :image="store.imgUrl + el.poster_path"
             :language="
               'https://flagsapi.com/' +
@@ -51,7 +51,6 @@
 <script>
 import Header from "./components/Header.vue";
 import { store } from "./data/store";
-import axios from "axios";
 import Card from "./components/Card.vue";
 export default {
   name: "App",
@@ -82,6 +81,13 @@ export default {
         return langUpCase;
       }
     },
+
+
+  
+     
+       
+    
+    
   },
 };
 </script>

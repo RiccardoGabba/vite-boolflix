@@ -13,6 +13,6 @@ export const store = reactive({
     query: ""
    },
 
-   movieList: [],
+    movieList: [],   
    seriesList: [],
 });

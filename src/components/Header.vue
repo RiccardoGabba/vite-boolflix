@@ -1,7 +1,8 @@
 <template>
   <div class="d-flex justify-content-between bg-black p-3">
-    <div>
+    <div class="d-flex">
       <h1 class="text-danger display-2">Netflix</h1>
+      <span>più o meno</span>
     </div>
 
     <nav class="navbar navbar-light">
@@ -38,7 +39,6 @@ export default {
       });
       const tvurl = this.store.apiUrl + this.store.endPoint.series;
       axios.get(tvurl, { params: this.store.params }).then((res) => {
-        console.log(res.data.results);
         this.store.seriesList = res.data.results;
       });
     },
