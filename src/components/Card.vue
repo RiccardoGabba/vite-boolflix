@@ -5,35 +5,44 @@
         <div class="box-front">
           <img :src="image" />
         </div>
-        <div class="box-back">
-          <h5>{{ title }}</h5>
-          <h5>{{ original_title }}</h5>
-          <h3>{{ original_name }}</h3>
-          <h5>{{ name }}</h5>
+        <div class="box-back overflow-auto">
+
+          <div class="my-2">
+            <h4>Titolo</h4>
+            <span>{{ title }}</span>
+            <span>{{ name }}</span>
+          </div>
+
+          <h4>Titolo Originale</h4>
+          <span>{{ original_title }}</span>
+          <span>{{ original_name }}</span>
+          
+          <h5>Lingua</h5>
           <img :src="language" />
-          <h5>{{ vote }}</h5>
+          
+          <h5>Voto: {{ vote }}</h5>
+          <p><strong>Overview:</strong> {{ overview }}</p>
+          
         </div>
-      
-    </div>
+      </div>
     </div>
   </div>
 </template>
 
 <script>
+
 export default {
   name: "Card",
   props: {
     image: String,
-    //descrizione
     overview: String,
     vote: String,
     language: String,
-    //nomi film
     title: String,
     original_title: String,
-    //nomi serie tv
     name: String,
     original_name: String,
+    overview: String,
   },
   data() {
     return {};
@@ -48,13 +57,11 @@ container-immagine {
 
 .box {
   background-color: transparent;
-
-  border: 1px solid #eeeeee;
   perspective: 1000px;
 }
 .box-inner {
   position: relative;
-  width: 100%;
+  width: 85%;
   height: 100%;
   text-align: center;
   transition: transform 0.5s;
@@ -69,13 +76,11 @@ container-immagine {
   width: 100%;
   height: 100%;
   backface-visibility: hidden;
+  top: 0;
 }
-.box-front {
-  background-color: #cccccc;
-  color: #111111;
-}
+
 .box-back {
-  background-color: #8ebf42;
+  background-color: #111111;
   color: #eeeeee;
   transform: rotateY(180deg);
 }

@@ -8,8 +8,7 @@
       <section id="movie">
         <h2 class="display-2">Film</h2>
         <div class="row flex-wrap">
-          
-                <Card
+                <Card class="mb-5"
                   v-for="el in store.movieList"  
                   :original_title="el.original_title"
                   :title="el.title"
@@ -19,20 +18,19 @@
                     langUp(el.original_language) +
                     '/flat/32.png'"
                   :image="store.imgUrl + el.poster_path"
+                  :overview="el.overview"
                 />
               </div>
               <div class="box-back">
-                
-      
-           
         </div>
       </section>
 
       <section id="tv">
         <h2 class="display-2">Serie</h2>
         <div class="row flex-wrap">
-          <card
+          <card class="mb-5"
             v-for="el in store.seriesList"
+            :overview="el.overview"
             :name="el.name"
             :original_name="el.original_name"
             :vote="el.vote_average"
@@ -42,6 +40,7 @@
               langUp(el.original_language) +
               '/flat/32.png'
             "
+           
           />
         </div>
       </section>
